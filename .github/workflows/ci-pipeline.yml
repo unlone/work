@@ -31,7 +31,11 @@ jobs:
       run: npm install --prefix src
 
     - name: Run tests
-      run: npm run test --prefix src
+      run: npm run test-integration --prefix src
+      
+    - name: Run tests mongodb
+      run: chmod +x scripts/e2e-ci.sh && ./scripts/e2e-ci.sh
+      
 
     - name: Stop containers
       if: always()
